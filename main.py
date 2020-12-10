@@ -17,7 +17,7 @@ from sklearn.svm import LinearSVC
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB, BernoulliNB
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score
 
 from PIL import ImageTk,Image
@@ -136,7 +136,7 @@ class Login:
     def Info_Success_2(self):
         tmsg.showinfo("success", "Account Create successfully")
 
-# Entering the Homepage
+#Entering the Homepage
 class HomePage:
     def __init__(self, root):
         self.root = root
@@ -189,6 +189,7 @@ class HomePage:
         root1 = Toplevel(self.root)
         enter = EnterData(root1)
 
+#Predicting the accurate algorithm for the model
 class algo_analysis:
     def __init__(self,root):
         self.root = root
@@ -266,7 +267,6 @@ class algo_analysis:
         labels = ['activities', 'appliances', 'artists', 'automotive', 'cell-phones', 'childcare', 'general',
                   'household-services', 'housing', 'photography', 'real-estate', 'shared', 'temporary', 'therapeutic',
                   'video-games', 'wanted-housing']
-        import pylab as pl
         cf_matrix = confusion_matrix(Y_test, Y_pred)
         print(cf_matrix)
         df_cm = pd.DataFrame(cf_matrix, columns=np.unique(Y_test), index=np.unique(Y_pred))
@@ -314,7 +314,7 @@ class loadFile:
                 post_list.append([post['city'],post['category'],post['section'],post['heading']])
         return post_list
 
-#   Entering the Data
+#Entering the Data
 class EnterData:
     def __init__(self, root):
         self.root = root
@@ -401,6 +401,7 @@ class EnterData:
     def my_preprocessor(self,string):
         return re.sub('[-@~%^&*+#$/\.?!<>;:,\'\"\\(){}]', ' ', string).lower()
 
+#Displaying the Data
 class showData:
     def __init__(self, root):
         self.root = root
@@ -445,7 +446,7 @@ class showData:
         tree.pack(side=TOP, fill=X)
 
 if __name__ == "__main__":
-
     root = Tk()
     l = Login(root)
     root.mainloop()
+
